@@ -2,6 +2,9 @@
 #set -e
 #export cdo=/usr/local/bin/cdo-1.4.6
 
+#data download from https://lpdaac.usgs.gov/products/vcf5kyrv001/
+ > Access Data > NASA Earthdata Search/Download Data > Download All > Download Script (.sh)
+ 
 #variables 
 #Layer 1: Percent Tree cover
 #Layer 2: Percent Non-Tree
