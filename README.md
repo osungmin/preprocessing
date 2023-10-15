@@ -1,5 +1,4 @@
-# preprocessing
-a collection of preprocessing data for my research
+# Collection of scripts for data pre-processing 
 
 
 # 1. lpdaac_vcf
