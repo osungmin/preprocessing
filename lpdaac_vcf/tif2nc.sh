@@ -2,6 +2,11 @@
 #set -e
 #export cdo=/usr/local/bin/cdo-1.4.6
 
+#variables 
+#Layer 1: Percent Tree cover
+#Layer 2: Percent Non-Tree
+#Layer 3: Percent Bare Ground
+
 gdal_translate -of netCDF VCF5KYR_2016001_001_2018224210310.tif VCF5KYR_2016001_001_2018224210310.nc
 gdal_translate -of netCDF VCF5KYR_2015001_001_2018224210248.tif VCF5KYR_2015001_001_2018224210248.nc
 gdal_translate -of netCDF VCF5KYR_2014001_001_2018224210222.tif VCF5KYR_2014001_001_2018224210222.nc
@@ -18,3 +23,8 @@ gdal_translate -of netCDF VCF5KYR_2004001_001_2018224205736.tif VCF5KYR_2004001_
 gdal_translate -of netCDF VCF5KYR_2003001_001_2018224205710.tif VCF5KYR_2003001_001_2018224205710.nc
 gdal_translate -of netCDF VCF5KYR_2002001_001_2018224205629.tif VCF5KYR_2002001_001_2018224205629.nc
 gdal_translate -of netCDF VCF5KYR_2001001_001_2018224205557.tif VCF5KYR_2001001_001_2018224205557.nc 
+
+#yearly average over the period 2001 to 2016 (ensavg: n/a is not ignored)
+cdo ensavg VCF5KYR* VCF5KYR.ensavg.2001.2016.nc
+#the percentage of tree cover divided by the sum of the percentages of short vegetation and tree cover
+cdo expr,'veg=Band1/(Band1+Band2);' VCF5KYR.ensavg.2001.2016.nc VCF5KYR.ensavg.tree.2001.2016.nc
