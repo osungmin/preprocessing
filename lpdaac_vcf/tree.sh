@@ -31,3 +31,5 @@ gdal_translate -of netCDF VCF5KYR_2001001_001_2018224205557.tif VCF5KYR_2001001_
 cdo ensavg VCF5KYR* VCF5KYR.ensavg.2001.2016.nc
 #the percentage of tree cover divided by the sum of the percentages of short vegetation and tree cover
 cdo expr,'veg=Band1/(Band1+Band2);' VCF5KYR.ensavg.2001.2016.nc VCF5KYR.ensavg.tree.2001.2016.nc
+#regrdding 
+cdo gridboxmean,10,10 VCF5KYR.ensavg.tree.2001.2016.nc VCF5KYR.ensavg.tree.d50.2001.2016.nc
